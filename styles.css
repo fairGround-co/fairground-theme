@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   @fairground-co/fairground-theme — fairGround brand token VALUES (DRAFT)
+
+   Values extracted 2026-07-10 from gainGround (design-system Phase 1
+   follow-on, seeded per issue #1) and mapped onto core token contract
+   v0. Values marked [draft] had no source equivalent and are proposed —
+   refinement of every flagged value is tracked in ISSUE #2 and
+   docs/refinement-notes.md.
+
+   Brand character: a "paper instrument" — pine primary + amber companion
+   on warm paper; saturation is spent on data, chrome stays quiet; borders
+   over shadows (card shadow deliberately zeroed); system-stack type with
+   mandatory tabular numerals.
+
+   Deliberate NON-overrides (adapt-to-the-base discipline, DECISIONS #18):
+   space/radius/motion/density keep the contract geometry; gainGround's
+   4px control radius and 160ms timings adapt to the base scale.
+   Categorical slots stay on the neutral reference palette — gainGround
+   deliberately has NO discrete series identity (score ramps only, fixed
+   across tenants); the pine sequential + pine↔clay diverging ramps come
+   free from core's derivations once --accent and the div anchors are set.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+[data-brand="fairground"] {
+  color-scheme: light;
+
+  /* ── Surfaces & ink — warm paper, green-cast ink ───────────────────── */
+  --bg:            oklch(0.975 0.004 140);
+  --surface:       #ffffff;
+  --surface-2:     oklch(0.955 0.005 140);  /* [draft] paper, one step down  */
+  --surface-3:     oklch(0.93 0.006 145);   /* [draft] deepest inset         */
+  --text:          oklch(0.28 0.02 160);
+  --text-muted:    oklch(0.55 0.02 155);
+  --text-faint:    oklch(0.72 0.015 152);   /* [draft] between muted & line  */
+  --border:        oklch(0.88 0.01 150);
+  --border-strong: oklch(0.79 0.012 152);   /* [draft]                       */
+  --overlay:       oklch(0.975 0.004 140 / 0.85);
+  --scrim:         oklch(0.28 0.02 160 / 0.45);
+
+  /* ── Working pair — pine acts, amber flags the provisional ─────────── */
+  --accent:    oklch(0.52 0.08 165);  /* pine — THE action/brand hue       */
+  --accent-2:  oklch(0.62 0.12 75);   /* amber — attention/pending/review  */
+  --on-accent: oklch(0.99 0 0);
+  --match:     oklch(0.62 0.12 75);   /* complement rule: match = amber    */
+  --commit:    oklch(0.42 0.09 165);  /* [draft] deepened pine — definitive
+                                         data-changing acts stay in-family */
+
+  /* ── Capability scope ─────────────────────────────────────────────────
+     [draft] gainGround has no auth-color pattern yet; mapped by meaning:
+     view = its info blue, guest = amber (provisional fits limited-access),
+     edit = the commit pine.                                              */
+  --scope-view:  oklch(0.55 0.08 240);
+  --scope-guest: oklch(0.62 0.12 75);
+  --scope-edit:  oklch(0.42 0.09 165);
+
+  /* ── Status — colorblind-safe set, always paired with icon/label ───── */
+  --status-success: oklch(0.55 0.10 155);  /* pos — green                  */
+  --status-warning: oklch(0.70 0.13 85);   /* warn — gold                  */
+  --status-caution: oklch(0.62 0.12 75);   /* amber — pending/provisional  */
+  --status-danger:  oklch(0.55 0.16 30);   /* neg — clay red               */
+  --status-info:    oklch(0.55 0.08 240);  /* blue                         */
+
+  /* ── Elevation — borders over shadows, by design ────────────────────── */
+  --shadow-card: none;  /* single shadow level reserved for overlays only */
+
+  /* ── Typography — instrument-grade system stacks, zero webfont latency */
+  --font-ui:        "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display:   "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-editorial: Georgia, "Times New Roman", serif;   /* [draft] unused */
+  --font-mono:      ui-monospace, Consolas, Menlo, monospace;
+
+  /* ── Dataviz — support↔oppose = pine↔clay, never partisan red/blue ── */
+  --viz-div-neg: oklch(0.55 0.16 30);   /* oppose — clay                  */
+  --viz-div-mid: oklch(0.88 0.01 150);  /* undecided — paper neutral      */
+  --viz-div-pos: oklch(0.52 0.08 165);  /* support — pine                 */
+  --path-drift-ahead: oklch(0.55 0.10 155);
+}
+
+[data-brand="fairground"][data-theme="dark"] {
+  color-scheme: dark;
+
+  /* gainGround's dark keeps SURFACE slightly lighter than ground (cards
+     lift toward the reader) — the opposite of the field-tool pop-to-black
+     pattern; kept as shipped.                                            */
+  --bg:            oklch(0.19 0.01 160);
+  --surface:       oklch(0.24 0.012 160);
+  --surface-2:     oklch(0.285 0.013 158);  /* [draft]                     */
+  --surface-3:     oklch(0.325 0.014 157);  /* [draft]                     */
+  --text:          oklch(0.93 0.005 150);
+  --text-muted:    oklch(0.68 0.015 155);
+  --text-faint:    oklch(0.52 0.015 155);   /* [draft]                     */
+  --border:        oklch(0.34 0.012 155);
+  --border-strong: oklch(0.44 0.014 155);   /* [draft]                     */
+  --overlay:       oklch(0.1 0.01 160 / 0.78);
+  --scrim:         color-mix(in srgb, var(--bg) 78%, transparent);
+
+  --accent:    oklch(0.70 0.09 165);   /* lightened pine                  */
+  --accent-2:  oklch(0.72 0.12 75);
+  --on-accent: oklch(0.15 0.02 160);   /* dark ink on light pine          */
+  --match:     oklch(0.72 0.12 75);
+  --commit:    oklch(0.62 0.09 165);   /* [draft] lifted commit pine      */
+
+  --scope-view:  oklch(0.66 0.08 240);  /* [draft] lifted                 */
+  --scope-guest: oklch(0.72 0.12 75);
+  --scope-edit:  oklch(0.62 0.09 165);
+
+  /* [draft] status lifts for charcoal legibility, same hue families      */
+  --status-success: oklch(0.66 0.10 155);
+  --status-warning: oklch(0.74 0.13 85);
+  --status-caution: oklch(0.72 0.12 75);
+  --status-danger:  oklch(0.65 0.15 32);
+  --status-info:    oklch(0.66 0.08 240);
+
+  --viz-div-mid: oklch(0.34 0.012 155);
+}
