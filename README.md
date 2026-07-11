@@ -8,6 +8,12 @@ density. Source: [docs/lookbook.html](docs/lookbook.html).
 > **0.1.x is a draft-quality seed** extracted from gainGround's design spec so
 > app work can start; the value refinement pass is issue #2 (flags in
 > [docs/refinement-notes.md](docs/refinement-notes.md)).
+>
+> **First production consumer (2026-07-11):** the gainGround app
+> ([fairground-co/gainground](https://github.com/fairground-co/gainground)
+> `app/`, React rewrite PR #3) ships on this theme. First-consumer evidence
+> per flagged value is recorded in refinement-notes; org voice is drafted in
+> [docs/voice.md](docs/voice.md).
 
 Brand **token values only** for this org — all palettes/variants, consumed with
 `@fairground-co/core`'s token contract. Invariant: no components, no widget code,
