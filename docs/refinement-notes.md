@@ -28,3 +28,43 @@ context, one value at a time, against `docs/lookbook.html`.*
 7. **No voice doc.** `nwae-theme/docs/voice.md` is the model.
 8. **Type is authentically the system stack** — no webfonts to arrange; the
    `--font-editorial` serif is a placeholder (unused by the app).
+
+## First-consumer evidence (2026-07-11 — gainGround React rewrite, gainground#3)
+
+The gainGround app was rebuilt on core + this theme (gainground issue #2 /
+PR #3), making it the theme's first production consumer. Per-flag evidence
+for Kyle's live lookbook pass — these are observations, not value changes:
+
+1. **`--commit` is now in active use.** The rewrite maps every definitive
+   data-changing act to Button `variant="commit"`: save annotation, add
+   axis/milestone, send invite, request import job, and the sign-in
+   activator. The deepened pine renders correctly, but the distance from
+   `--accent` is subtle (L 0.52 → 0.42, same hue/chroma family) — judge in
+   the lookbook whether commit reads as "more definitive" or just "darker".
+2. **Scope colors: still no app evidence.** The app gates by role
+   (manager/modeler/super_admin) but has no scope-colored chrome yet (core's
+   `AuthStatus` not adopted; the rail uses plain text + buttons). Unblocked
+   whenever wanted, but nothing new to judge against.
+3. **`--surface-2` is now highly visible**: core's TextInput / SearchInput /
+   Select render surface-2 fills, so every form in the app shows it against
+   `--surface` panels on the `--bg` paper. The three-step paper ramp is
+   worth a deliberate look in the lookbook forms section. `--text-faint` and
+   `--border-strong` remain unconsumed by app code.
+4. **Categorical slots staying neutral: CONFIRMED.** The rewrite introduced
+   zero `--cat-*` usage — score ramps only, as designed.
+5. **Dark surface direction: kept and verified.** The rewrite drives dark
+   mode through the ported theme store (`data-theme` on the root); rendered
+   values match the pre-rewrite app exactly.
+6. **Sunlight mode: still app-level.** The field app doesn't exist yet;
+   nothing forces the decision.
+7. **Voice doc: DRAFTED** — `docs/voice.md` in this PR, distilled from
+   gainGround's BRAND-BRIEF/PRODUCT/DESIGN by the app-context agent.
+   Kyle reviews wording like any brand value.
+8. **System stack confirmed in production** — the rewrite ships zero
+   webfonts; `--font-editorial` still unused.
+
+**New, for the next core session (not a theme concern):** core's Button has
+no danger variant, so the app composed an app-side `DangerButton` (neutral
+variant tinted with `--status-danger` via style) for destructive acts
+(remove axis, revoke invite, discard, compact history). If a second app
+grows the same pattern, that's a graduation candidate against core's Button.
